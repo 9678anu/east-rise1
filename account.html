@@ -40,19 +40,40 @@
     }
 
     .welcome-message {
-      font-size: 1.2rem;
-      color: #444;
-      font-weight: 400;
+      font-size: 1.3rem;
+      color: #1a1a1a;
+      font-weight: 500;
+      line-height: 1.5;
     }
 
     .account-container {
-      background: #ffffff;
+      background: linear-gradient(145deg, #ffffff, #f9f9f9);
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      padding: 2.5rem;
       width: 100%;
-      max-width: 450px;
+      max-width: 500px;
       text-align: center;
+      margin-bottom: 2rem;
+      border-left: 4px solid #f5a623;
+      position: relative;
+    }
+
+    .account-icon-container {
+      background: #f5a623;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .account-icon {
+      width: 40px;
+      height: 40px;
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Makes black icon white */
     }
 
     .account-info {
@@ -60,28 +81,33 @@
     }
 
     .info-header {
-      font-size: 1.4rem;
-      font-weight: 600;
+      font-size: 1.6rem;
+      font-weight: 700;
       color: #1a1a1a;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
     .info-header span {
       color: #f5a623;
+      font-size: 1.4rem;
     }
 
     .info-item {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 700;
-      color: #333;
-      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
     }
 
     .info-item span {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      margin-left: 8px;
-      color: #666;
+      margin-left: 10px;
+      color: #555;
     }
 
     .back-btn {
@@ -107,6 +133,90 @@
       margin-right: 8px;
     }
 
+    .services-section {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 30px;
+    }
+
+    .services-header {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-box {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-icon-container {
+      background: #f5a623;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .savings-goals-icon {
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Makes black icon white */
+    }
+
+    .service-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-description {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .learn-more {
+      font-size: 0.9rem;
+      color: #f5a623;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .learn-more:hover {
+      color: #e6951c;
+      text-decoration: underline;
+    }
+
     @media (max-width: 480px) {
       .account-main {
         padding: 20px;
@@ -116,20 +226,34 @@
         padding: 1.5rem;
       }
 
+      .account-icon-container {
+        width: 50px;
+        height: 50px;
+      }
+
+      .account-icon {
+        width: 32px;
+        height: 32px;
+      }
+
       .logo {
         max-width: 120px;
       }
 
       .welcome-message {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
 
       .info-header {
+        font-size: 1.4rem;
+      }
+
+      .info-header span {
         font-size: 1.2rem;
       }
 
       .info-item {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
 
       .info-item span {
@@ -140,6 +264,40 @@
         font-size: 0.9rem;
         padding: 0.7rem 1.5rem;
       }
+
+      .services-section {
+        padding: 0 20px;
+      }
+
+      .services-header {
+        font-size: 1.4rem;
+      }
+
+      .service-box {
+        padding: 1rem;
+      }
+
+      .service-icon-container {
+        width: 50px;
+        height: 50px;
+      }
+
+      .service-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .service-title {
+        font-size: 1.1rem;
+      }
+
+      .service-description {
+        font-size: 0.85rem;
+      }
+
+      .learn-more {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -147,9 +305,12 @@
   <main class="account-main">
     <div class="header">
       <img src="https://vermontbiz.com/sites/default/files/inline-images/ERCU.png" alt="Company Logo" class="logo">
-      <div class="welcome-message" id="welcome-message">Welcome back, dear User!</div>
+      <div class="welcome-message" id="welcome-message">Grow Your Future, User!<br>Your savings journey starts here with EastRise Credit Union.</div>
     </div>
     <div class="account-container">
+      <div class="account-icon-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/61/61205.png" alt="Savings Account Icon" class="account-icon">
+      </div>
       <div class="account-info">
         <div class="info-header">
           Savings <span id="account-last-four">1800</span>
@@ -170,12 +331,66 @@
         Back to Dashboard
       </a>
     </div>
+    <section class="services-section">
+      <h2 class="services-header">Banking Services</h2>
+      <div class="services-grid">
+        <div class="service-box">
+          <div class="service-icon-container">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/money-transfer.png" alt="Transfer Icon" class="service-icon">
+          </div>
+          <h3 class="service-title">Transfers</h3>
+          <p class="service-description">Easily transfer money between your accounts or to other members.</p>
+          <a href="#transfers" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-box">
+          <div class="service-icon-container">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/bill.png" alt="Bill Pay Icon" class="service-icon">
+          </div>
+          <h3 class="service-title">Bill Pay</h3>
+          <p class="service-description">Schedule and pay your bills online with ease.</p>
+          <a href="#billpay" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-box">
+          <div class="service-icon-container">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/transaction-list.png" alt="Transactions Icon" class="service-icon">
+          </div>
+          <h3 class="service-title">Recent Transactions</h3>
+          <p class="service-description">View your latest account activities and statements.</p>
+          <a href="#transactions" class="learn-more">Learn More</a>
+        </div>
+        
+        <div class="service-box">
+          <div class="service-icon-container">
+            <img src="https://cdn-icons-png.flaticon.com/512/71/71090.png" alt="Savings Goals Icon" class="service-icon savings-goals-icon">
+          </div>
+          <h3 class="service-title">Savings Goals</h3>
+          <p class="service-description">Set and track your financial goals with our tools.</p>
+          <a href="#savings" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-box">
+          <div class="service-icon-container">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/mobile-payment.png" alt="Mobile Banking Icon" class="service-icon">
+          </div>
+          <h3 class="service-title">Mobile Banking</h3>
+          <p class="service-description">Access your account anytime, anywhere with our mobile app.</p>
+          <a href="#mobile" class="learn-more">Learn More</a>
+        </div>
+        <div class="service-box">
+          <div class="service-icon-container">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/customer-support.png" alt="Support Icon" class="service-icon">
+          </div>
+          <h3 class="service-title">Contact Support</h3>
+          <p class="service-description">Reach out to our support team for assistance.</p>
+          <a href="#support" class="learn-more">Learn More</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
     // Retrieve and display username for welcome message
     const username = localStorage.getItem('signupUsername') || 'User';
-    document.getElementById('welcome-message').textContent = `Welcome back, ${username}!`;
+    document.getElementById('welcome-message').innerHTML = `Grow Your Future, ${username}!<br>Your savings journey starts here with EastRise Credit Union.`;
 
     // Retrieve and display last 4 digits of account number from localStorage
     const accountNo = localStorage.getItem('signupAccountNo') || '1968079';
