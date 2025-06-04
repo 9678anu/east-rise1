@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EastRiseCreditUnion</title>
+  <title>EastRiseCreditUnion - Thank You</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
     }
 
     body {
-      background-color: #f0f2f5;
+      background: linear-gradient(135deg, #f0f2f5 0%, #e0e7ff 100%);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     .thanks-main {
@@ -30,49 +31,125 @@
     }
 
     .thanks-container {
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.98);
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      max-width: 550px;
       width: 100%;
+      animation: fadeIn 1s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
     }
 
     .heading {
       color: #1a1a1a;
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
     }
 
     .message {
-      color: #333;
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
+      color: #444;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-weight: 400;
     }
 
     .login-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 1.5rem;
-      background-color: #f5a623;
+      padding: 0.9rem 2rem;
+      background: linear-gradient(90deg, #f5a623, #e6951c);
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       color: white;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
     }
 
     .login-btn:hover {
-      background-color: #e6951c;
+      background: linear-gradient(90deg, #e6951c, #d48415);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(245, 166, 35, 0.4);
     }
 
     .login-btn svg {
-      margin-left: 8px;
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .login-btn:hover svg {
+      transform: translateX(5px);
+    }
+
+    .footer-text {
+      margin-top: 1.5rem;
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    .footer-text a {
+      color: #f5a623;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-text a:hover {
+      color: #e6951c;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .thanks-container {
+        padding: 2rem;
+        max-width: 450px;
+      }
+
+      .heading {
+        font-size: 1.8rem;
+      }
+
+      .message {
+        font-size: 1rem;
+      }
+
+      .logo {
+        width: 100px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -82,22 +159,37 @@
       }
 
       .heading {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
       }
 
       .message, .login-btn {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+      }
+
+      .login-btn {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .logo {
+        width: 80px;
+      }
+
+      .footer-text {
+        font-size: 0.85rem;
       }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <main class="thanks-main">
     <div class="thanks-container">
+      <div class="logo-container">
+        <img src="https://vermontbiz.com/sites/default/files/inline-images/ERCU.png" alt="EastRise Credit Union Logo" class="logo">
+      </div>
       <h2 class="heading">Congratulations!</h2>
       <p class="message">
-        Your account has been successfully created! Click below to log in and continue.
-        You will receive an email with your account details shortly.
+        Your account has been successfully created! We've sent your account details to your email. Click below to log in and start exploring EastRise Credit Union's services.
       </p>
       <a href="login.html" class="login-btn">
         Log In
@@ -105,6 +197,9 @@
           <path d="M9 5l7 7-7 7"></path>
         </svg>
       </a>
+      <p class="footer-text">
+        Need help? <a href="mailto:support@eastrise.com">Contact our support team</a>
+      </p>
     </div>
   </main>
 </body>
