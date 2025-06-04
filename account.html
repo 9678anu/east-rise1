@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EastRiseCreditUnion</title>
+  <title>EastRiseCreditUnion - Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
     }
 
     body {
-      background-color: #f5f7fa;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e0e7ff 100%);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -37,6 +38,11 @@
     .logo {
       max-width: 150px;
       margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
     }
 
     .welcome-message {
@@ -57,6 +63,7 @@
       margin-bottom: 2rem;
       border-left: 4px solid #f5a623;
       position: relative;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .account-icon-container {
@@ -73,7 +80,7 @@
     .account-icon {
       width: 40px;
       height: 40px;
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Makes black icon white */
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
     }
 
     .account-info {
@@ -115,18 +122,21 @@
       align-items: center;
       justify-content: center;
       padding: 0.8rem 2rem;
-      background: #f5a623;
+      background: linear-gradient(90deg, #f5a623, #e6951c);
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       color: white;
       font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
     }
 
     .back-btn:hover {
-      background-color: #e6951c;
+      background: linear-gradient(90deg, #e6951c, #d48415);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(245, 166, 35, 0.4);
     }
 
     .back-btn svg {
@@ -187,7 +197,7 @@
     }
 
     .savings-goals-icon {
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Makes black icon white */
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
     }
 
     .service-title {
@@ -209,12 +219,97 @@
       color: #f5a623;
       text-decoration: none;
       font-weight: 500;
+      cursor: pointer;
       transition: color 0.3s ease;
     }
 
     .learn-more:hover {
       color: #e6951c;
       text-decoration: underline;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: fadeIn 0.3s ease-in-out;
+      text-align: center;
+    }
+
+    .modal-icon-container {
+      background: #f5a623;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .modal-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .modal-icon.savings-goals-icon {
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+
+    .modal-content h2 {
+      font-size: 1.5rem;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: #f5a623;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 480px) {
@@ -298,13 +393,36 @@
       .learn-more {
         font-size: 0.85rem;
       }
+
+      .modal-content {
+        width: 90%;
+        padding: 1.5rem;
+      }
+
+      .modal-content h2 {
+        font-size: 1.3rem;
+      }
+
+      .modal-content p {
+        font-size: 0.9rem;
+      }
+
+      .modal-icon-container {
+        width: 50px;
+        height: 50px;
+      }
+
+      .modal-icon {
+        width: 32px;
+        height: 32px;
+      }
     }
   </style>
 </head>
 <body>
   <main class="account-main">
     <div class="header">
-      <img src="https://vermontbiz.com/sites/default/files/inline-images/ERCU.png" alt="Company Logo" class="logo">
+      <img src="https://vermontbiz.com/sites/default/files/inline-images/ERCU.png" alt="EastRise Credit Union Logo" class="logo">
       <div class="welcome-message" id="welcome-message">Grow Your Future, User!<br>Your savings journey starts here with EastRise Credit Union.</div>
     </div>
     <div class="account-container">
@@ -340,7 +458,7 @@
           </div>
           <h3 class="service-title">Transfers</h3>
           <p class="service-description">Easily transfer money between your accounts or to other members.</p>
-          <a href="#transfers" class="learn-more">Learn More</a>
+          <a href="#transfers" class="learn-more" data-modal="transfers">Learn More</a>
         </div>
         <div class="service-box">
           <div class="service-icon-container">
@@ -348,7 +466,7 @@
           </div>
           <h3 class="service-title">Bill Pay</h3>
           <p class="service-description">Schedule and pay your bills online with ease.</p>
-          <a href="#billpay" class="learn-more">Learn More</a>
+          <a href="#billpay" class="learn-more" data-modal="billpay">Learn More</a>
         </div>
         <div class="service-box">
           <div class="service-icon-container">
@@ -356,16 +474,15 @@
           </div>
           <h3 class="service-title">Recent Transactions</h3>
           <p class="service-description">View your latest account activities and statements.</p>
-          <a href="#transactions" class="learn-more">Learn More</a>
+          <a href="#transactions" class="learn-more" data-modal="transactions">Learn More</a>
         </div>
-        
         <div class="service-box">
           <div class="service-icon-container">
             <img src="https://cdn-icons-png.flaticon.com/512/71/71090.png" alt="Savings Goals Icon" class="service-icon savings-goals-icon">
           </div>
           <h3 class="service-title">Savings Goals</h3>
           <p class="service-description">Set and track your financial goals with our tools.</p>
-          <a href="#savings" class="learn-more">Learn More</a>
+          <a href="#savings" class="learn-more" data-modal="savings">Learn More</a>
         </div>
         <div class="service-box">
           <div class="service-icon-container">
@@ -373,7 +490,7 @@
           </div>
           <h3 class="service-title">Mobile Banking</h3>
           <p class="service-description">Access your account anytime, anywhere with our mobile app.</p>
-          <a href="#mobile" class="learn-more">Learn More</a>
+          <a href="#mobile" class="learn-more" data-modal="mobile">Learn More</a>
         </div>
         <div class="service-box">
           <div class="service-icon-container">
@@ -381,10 +498,72 @@
           </div>
           <h3 class="service-title">Contact Support</h3>
           <p class="service-description">Reach out to our support team for assistance.</p>
-          <a href="#support" class="learn-more">Learn More</a>
+          <a href="#support" class="learn-more" data-modal="support">Learn More</a>
         </div>
       </div>
     </section>
+
+    <!-- Modals for each service -->
+    <div class="modal" id="transfers-modal">
+      <div class="modal-content">
+        <span class="close-btn">×</span>
+        <div class="modal-icon-container">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/money-transfer.png" alt="Transfer Icon" class="modal-icon">
+        </div>
+        <h2>Transfers</h2>
+        <p>With our seamless transfer service, you can move money between your EastRise accounts or to other members instantly. External transfers are secure with minimal fees, and you can set up recurring transfers to automate savings or payments. Track all your transfers in real-time with our intuitive dashboard.</p>
+      </div>
+    </div>
+    <div class="modal" id="billpay-modal">
+      <div class="modal-content">
+        <span class="close-btn">×</span>
+        <div class="modal-icon-container">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/bill.png" alt="Bill Pay Icon" class="modal-icon">
+        </div>
+        <h2>Bill Pay</h2>
+        <p>Simplify your finances with our online bill pay service. Schedule one-time or recurring payments, view payment history, and set reminders to avoid missing due dates. Our secure platform ensures your transactions are protected, and you can manage everything from one place.</p>
+      </div>
+    </div>
+    <div class="modal" id="transactions-modal">
+      <div class="modal-content">
+        <span class="close-btn">×</span>
+        <div class="modal-icon-container">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/transaction-list.png" alt="Transactions Icon" class="modal-icon">
+        </div>
+        <h2>Recent Transactions</h2>
+        <p>Keep track of your finances with real-time updates on all account activities. Filter transactions by date, type, or amount, and download detailed statements for your records. Access your transaction history anytime, anywhere, on any device.</p>
+      </div>
+    </div>
+    <div class="modal" id="savings-modal">
+      <div class="modal-content">
+        <span class="close-btn">×</span>
+        <div class="modal-icon-container">
+          <img src="https://cdn-icons-png.flaticon.com/512/71/71090.png" alt="Savings Goals Icon" class="modal-icon savings-goals-icon">
+        </div>
+        <h2>Savings Goals</h2>
+        <p>Plan your financial future with our savings goal tracker. Set targets for vacations, a new home, or emergency funds, and monitor your progress with interactive charts. Get personalized tips to stay on track and achieve your goals faster.</p>
+      </div>
+    </div>
+    <div class="modal" id="mobile-modal">
+      <div class="modal-content">
+        <span class="close-btn">×</span>
+        <div class="modal-icon-container">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/mobile-payment.png" alt="Mobile Banking Icon" class="modal-icon">
+        </div>
+        <h2>Mobile Banking</h2>
+        <p>Bank on the go with our secure mobile app, available for iOS and Android. Check balances, transfer funds, pay bills, and deposit checks from anywhere. Enjoy biometric login and real-time notifications for added security and convenience.</p>
+      </div>
+    </div>
+    <div class="modal" id="support-modal">
+      <div class="modal-content">
+        <span class="close-btn">×</span>
+        <div class="modal-icon-container">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/customer-support.png" alt="Support Icon" class="modal-icon">
+        </div>
+        <h2>Contact Support</h2>
+        <p>Our dedicated support team is available 24/7 to assist you. Contact us via email, phone, or live chat for help with account issues, transactions, or general inquiries. Visit our support page for FAQs and quick solutions to common questions.</p>
+      </div>
+    </div>
   </main>
 
   <script>
@@ -396,6 +575,38 @@
     const accountNo = localStorage.getItem('signupAccountNo') || '1968079';
     const lastFour = accountNo.slice(-4);
     document.getElementById('account-last-four').textContent = lastFour;
+
+    // Modal functionality
+    const learnMoreLinks = document.querySelectorAll('.learn-more');
+    const modals = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.close-btn');
+
+    learnMoreLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modalId = link.getAttribute('data-modal') + '-modal';
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.style.display = 'flex';
+        }
+      });
+    });
+
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        modals.forEach(modal => {
+          modal.style.display = 'none';
+        });
+      });
+    });
+
+    window.addEventListener('click', (e) => {
+      modals.forEach(modal => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
   </script>
 </body>
 </html>
